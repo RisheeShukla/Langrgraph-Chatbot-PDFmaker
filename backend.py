@@ -7,11 +7,11 @@ from pydantic import Field
 from dotenv import load_dotenv
 import os
 load_dotenv()
-
+HUGGING_FACE_API_TOKEN=os.getenv('HUGGING_FACE_API_TOKEN')
 llm = HuggingFaceEndpoint(
     repo_id="Qwen/Qwen3-235B-A22B-Instruct-2507",
     task="text-generation",
-   
+     huggingfacehub_api_token=HUGGING_FACE_API_TOKEN,
     temperature=2,
     max_new_tokens=100
 )
