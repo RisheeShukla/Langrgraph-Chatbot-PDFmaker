@@ -24,7 +24,7 @@ This project leverages **LangGraph** to maintain complex conversational states. 
 | **Framework** | LangGraph, LangChain |
 | **Logic** | Python |
 | **Frontend** | Streamlit |
-| **PDF Engine** | *[Insert library, e.g., FPDF/ReportLab]* |
+| **PDF Engine** | *[ReportLab]* |
 
 </div>
 
