@@ -62,21 +62,14 @@ for thread_id in st.session_state['chat_threads']:
 
 def generate_flux_image(prompt, filename="flux_image.png"):
     headers = {"Authorization": f"Bearer {HUGGING_FACE_API_TOKEN}","Accept": "image/png"}  # Important: tell HF to return image bytes!}
-    FLUX_ENDPOINT = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell"
+    FLUX_ENDPOINT = "https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0"
     data = {
         "inputs": prompt,
-        "parameters": {
-            "num_inference_steps": 4,
-            "guidance_scale": 3.5,
-            "width": 512,
-            "height": 512
-        }
+        
     }
     
     response = requests.post(FLUX_ENDPOINT, headers=headers, json=data)
     content_type = response.headers.get("content-type", "")
-    if "image" not in content_type:
-        raise ValueError(f"Flux API returned non-image response: {response.text}")
 
     img = PILImage.open(BytesIO(response.content))
 
