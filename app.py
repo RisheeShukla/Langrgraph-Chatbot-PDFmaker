@@ -66,7 +66,7 @@ def generate_flux_image(prompt, filename="flux_image.png"):
     data = {
         "inputs": prompt,
         "parameters": {
-            "num_inference_steps": 30,
+            "num_inference_steps": 4,
             "guidance_scale": 3.5,
             "width": 512,
             "height": 512
